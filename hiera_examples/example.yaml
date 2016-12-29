@@ -8,17 +8,14 @@ puppet_network::routes::interfaces:
 
 puppet_network::routes::routes:
   eth0_10.12.0.0_16:
-      gateway:   '172.17.10.1',
-      netmask:   '16',
-      interface: 'eth0',
-      network:   '10.12.0.0',
+    gateway:   '172.17.10.1',
+    interface: 'eth0',
+    network:   '10.12.0.0/16',
   eth0_10.25.0.0_15:
-      gateway:   '172.17.10.1',
-      netmask:   '15',
-      interface: 'eth0',
-      network:   '10.25.0.0',
+    gateway:   '172.17.10.1',
+    interface: 'eth0',
+    network:   '10.25.0.0/15',
   eth1_10.25.0.0_16:
     gateway:   '172.17.10.1',
-    netmask:   '16',
     interface: 'eth1',
-    network:   '10.25.0.0',
+    network:   '10.25.0.0/16',
