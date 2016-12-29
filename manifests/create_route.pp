@@ -9,18 +9,18 @@ define puppet_network::create_route (
   $interface,
   $network = 'default',
 ) {
-  if $netmask {
-    file_line { "route-$interface-$network":
-      path    => "/etc/sysconfig/network-scripts/route-$interface",
-      content => "$network via $gateway dev $interface",
-    }
-  }
-  else {
+  if $network == 'default' {
     file { "/etc/sysconfig/network-scripts/route-$interface":
       ensure  => file,
       owner   => root,
       group   => root,
       mode    => "0644",
+      content => "$network via $gateway dev $interface",
+    }
+  }
+  else {
+    file_line { "route-$interface-$network":
+      path    => "/etc/sysconfig/network-scripts/route-$interface",
       content => "$network via $gateway dev $interface",
     }
   }
