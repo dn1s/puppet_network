@@ -1,9 +1,9 @@
 # Example call:
-#  puppet_network::create_route { '10.10.0.0/16':
+#  puppet_network::create_route { 'eth0_10.12.0.0_16':
 #    gateway   => '172.17.10.1',
-#    interface => 'eth1',
+#    interface => 'eth0',
 #    netmask   => '16',
-#    network   => '10.10.0.0',
+#    network   => '10.12.0.0',
 #  }
 define puppet_network::create_route (
   $gateway,
