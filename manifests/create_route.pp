@@ -10,12 +10,9 @@ define puppet_network::create_route (
   $network = 'default',
 ) {
   if $network == 'default' {
-    file { "/etc/sysconfig/network-scripts/route-$interface":
-      ensure  => file,
-      owner   => root,
-      group   => root,
-      mode    => "0644",
-      content => "$network via $gateway dev $interface",
+    file_line { "route-$interface-default":
+      path => "/etc/sysconfig/network-scripts/route-$interface",
+      line => "$network via $gateway dev $interface",
     }
   }
   else {
